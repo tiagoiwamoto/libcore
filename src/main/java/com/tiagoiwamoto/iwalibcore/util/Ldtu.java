@@ -10,6 +10,7 @@ package com.tiagoiwamoto.iwalibcore.util;
 
 import com.tiagoiwamoto.iwalibcore.model.dto.LocalDateTimeDTO;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -17,8 +18,9 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Ldtu {
+public class Ldtu implements Serializable {
 
+    private static final long serialVersionUID = -7910520512254863120L;
     private LocalDateTime localDateTime;
     private LocalDateTimeDTO localDateTimeDTO;
     private String fullPattern;
