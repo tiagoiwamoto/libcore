@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/File Header.txt.ft">
           <value>
             <set />
@@ -38,7 +43,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/tdd/ClockTDD.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/util/JDate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/util/Ldtu.java">
           <value>
             <set />
           </value>
