@@ -23,6 +23,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/model/dto/LocalDateTimeDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/model/enums/SexEnum.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/model/enums/StatusEnum.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/util/JDate.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/util/LocaDateTimeUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
