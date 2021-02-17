@@ -12,6 +12,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -27,7 +29,11 @@ public class ResultsetMapper<T> implements Serializable {
 
     private static final long serialVersionUID = -8613892522949576847L;
 
+    Logger log = LogManager.getLogger(ResultsetMapper.class.getName());
+
     public List<T> serialize(ResultSet resultSet) throws Exception {
+
+        log.info("starting walking to resultset");
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -37,7 +43,7 @@ public class ResultsetMapper<T> implements Serializable {
             List<Map<String, Object>> resultList = new LinkedList<>();
             while(resultSet.next()){
                 Map<String, Object> map = new HashMap<>();
-
+                log.info("resultset have {} records", resultList.size());
                 for(int column = 1; column <= resultSet.getMetaData().getColumnCount(); column++){
                     if(resultSet.getObject(column) != null){
                         final String currentColumnType = resultSet.getObject(column).getClass().getSimpleName();
@@ -51,15 +57,16 @@ public class ResultsetMapper<T> implements Serializable {
                                     method.invoke(resultSet, column)
                             );
                         }else{
-                            throw new Exception("Unmaped column type");
+                            log.error("failed to map your resultset because one or more columns type is not supported.");
+                            throw new Exception("failed to map your resultset because one or more columns type is not supported.");
                         }
                     }
                 }
                 resultList.add(map);
             }
-            List<T> objList = mapper.convertValue(resultList, new TypeReference<List<T>>(){});
-            return objList;
+            return mapper.convertValue(resultList, new TypeReference<List<T>>(){});
         }catch (Exception e){
+            log.error("Failed to convert your object", e);
             throw new Exception("Failed to convert your object", e);
         }
 
