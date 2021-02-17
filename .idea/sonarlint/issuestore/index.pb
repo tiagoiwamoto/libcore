@@ -17,3 +17,9 @@ h
 8src/main/java/com/tiagoiwamoto/iwalibcore/util/Ldtu.java,9\7\9706651f77634d5b17b9eab2490217eb9fdb4f70
 i
 9src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlMap.java,5\b\5bf8b61e5bf7ef856cf3de48dbb00c10a8cac86a
+r
+Bsrc/main/java/com/tiagoiwamoto/iwalibcore/tdd/ClassSimpleName.java,2\f\2faec54fe4a1bede8a9c4e80d92d9f72f899e1e8
+j
+:src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlEnum.java,4\a\4a08b3c8f87c841089da244442565cb4a1cce711
+p
+@src/main/java/com/tiagoiwamoto/iwalibcore/tdd/SqliteJdbcTDD.java,0\8\08fd5aa020652a20a86a0a667ea70359e7cdf2f6

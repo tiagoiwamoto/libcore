@@ -26,7 +26,6 @@ public class SqliteJdbcTDD {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select * from tb_teste_types");
         List<Map<String, Object>> result = new SqlMap().serialize(rs);
-        System.out.println("fim");
         conn.close();
     }
 
