@@ -8,6 +8,11 @@ package com.tiagoiwamoto.iwtlibcore.sql;
  * 16/02/2021 | 07:20
  */
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
@@ -18,11 +23,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class ResultsetMapper implements Serializable {
+public class ResultsetMapper<T> implements Serializable {
 
     private static final long serialVersionUID = -8613892522949576847L;
 
-    public List<Map<String, Object>> serialize(ResultSet resultSet) throws Exception {
+    public List<T> serialize(ResultSet resultSet) throws Exception {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.registerModule(new JavaTimeModule());
 
         try{
             List<Map<String, Object>> resultList = new LinkedList<>();
@@ -48,7 +57,8 @@ public class ResultsetMapper implements Serializable {
                 }
                 resultList.add(map);
             }
-            return resultList;
+            List<T> objList = mapper.convertValue(resultList, new TypeReference<List<T>>(){});
+            return objList;
         }catch (Exception e){
             throw new Exception("Failed to convert your object", e);
         }

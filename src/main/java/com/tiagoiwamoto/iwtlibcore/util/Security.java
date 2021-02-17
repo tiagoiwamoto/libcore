@@ -1,10 +1,11 @@
 package com.tiagoiwamoto.iwtlibcore.util;
 
 /*
-    # Tiago Henrique Iwamoto
-    # 60003083
-    # tiago.iwamoto@midwayfinanceira.com.br
-    # 17/02/2021 - 14:31
+ * Tiago Henrique Iwamoto
+ * tiago.iwamoto@gmail.com
+ * linkedin.com/in/tiago-iwamoto
+ * System specialist
+ * 17/02/2021 - 14:31
 */
 
 import javax.crypto.Cipher;

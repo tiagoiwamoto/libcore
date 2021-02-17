@@ -7,10 +7,8 @@ import org.mockito.Mockito;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.util.Map;
 
 
 /*
@@ -28,7 +26,7 @@ public class ResultsetMapperTest {
         Connection conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select * from tb_teste_types");
-        List<Map<String, Object>> result = new ResultsetMapper().serialize(rs);
+        List<PojoTest> result = new ResultsetMapper<PojoTest>().serialize(rs);
         conn.close();
         Assert.assertNotNull(result);
     }
@@ -37,7 +35,7 @@ public class ResultsetMapperTest {
     public void serializeError() throws Exception {
         ResultSet resultSet = Mockito.mock(ResultSet.class);
         Mockito.when(resultSet.next()).thenReturn(true);
-        new ResultsetMapper().serialize(resultSet);
+        new ResultsetMapper<>().serialize(resultSet);
     }
 
 }
