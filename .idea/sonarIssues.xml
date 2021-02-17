@@ -43,6 +43,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/sql/MockResultSet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlEnum.java">
           <value>
             <set />
@@ -84,6 +89,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/util/LocaDateTimeUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/sql/MockResultSet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/sql/SqlEnum.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/sql/SqlMap.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/ClassSimpleName.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/SqliteJdbcTDD.java">
           <value>
             <set />
           </value>
