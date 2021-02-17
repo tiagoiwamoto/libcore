@@ -43,12 +43,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlEnum.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlMap.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/sql/SqlMapInterface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/tdd/ClassSimpleName.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/tdd/ClockTDD.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwalibcore/tdd/SqliteJdbcTDD.java">
           <value>
             <set />
           </value>

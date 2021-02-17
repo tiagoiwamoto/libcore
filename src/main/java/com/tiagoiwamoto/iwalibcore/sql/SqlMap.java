@@ -9,15 +9,14 @@ package com.tiagoiwamoto.iwalibcore.sql;
  */
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.lang.reflect.Method;
 import java.sql.ResultSet;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class SqlMap implements Serializable {
 
@@ -31,68 +30,20 @@ public class SqlMap implements Serializable {
                 Map<String, Object> map = new HashMap<>();
 
                 for(int column = 1; column <= resultSet.getMetaData().getColumnCount(); column++){
-                    if (resultSet.getObject(column).getClass() == String.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getString(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Integer.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getInt(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Long.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getLong(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Double.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getDouble(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Float.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getFloat(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Boolean.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getBoolean(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == BigDecimal.class) {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getBigDecimal(column)
-                        );
-                    } else if (resultSet.getObject(column).getClass() == Timestamp.class) {
-                        try {
+                    if(resultSet.getObject(column) != null){
+                        final String currentColumnType = resultSet.getObject(column).getClass().getSimpleName();
+                        Optional<SqlEnum> optionalSqlEnum = Arrays.stream(SqlEnum.values())
+                                .filter((SqlEnum value) -> value.getClassSimpleName().equals(currentColumnType))
+                                .findFirst();
+                        if(optionalSqlEnum.isPresent()){
+                            SqlEnum sqlEnum = optionalSqlEnum.get();
+                            Method method = resultSet.getClass().getMethod(sqlEnum.getMethodToCall(), int.class);
                             map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getTimestamp(column)
+                                    method.invoke(resultSet, column)
                             );
-                        } catch (Exception e) {
-                            map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getObject(column)
-                            );
+                        }else{
+                            throw new Exception("Unmaped column type");
                         }
-                    } else if (resultSet.getObject(column).getClass() == Date.class) {
-                        try {
-                            map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getDate(column)
-                            );
-                        } catch (Exception e) {
-                            map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getObject(column)
-                            );
-                        }
-                    } else if (resultSet.getObject(column).getClass() == Time.class) {
-                        try {
-                            map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getTime(column)
-                            );
-                        } catch (Exception e) {
-                            map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                    resultSet.getObject(column)
-                            );
-                        }
-                    } else {
-                        map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
-                                resultSet.getObject(column)
-                        );
                     }
                 }
                 resultList.add(map);
