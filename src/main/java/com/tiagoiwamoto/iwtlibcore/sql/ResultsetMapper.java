@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class SqlMap implements Serializable {
+public class ResultsetMapper implements Serializable {
 
     private static final long serialVersionUID = -8613892522949576847L;
 
@@ -32,12 +32,12 @@ public class SqlMap implements Serializable {
                 for(int column = 1; column <= resultSet.getMetaData().getColumnCount(); column++){
                     if(resultSet.getObject(column) != null){
                         final String currentColumnType = resultSet.getObject(column).getClass().getSimpleName();
-                        Optional<SqlEnum> optionalSqlEnum = Arrays.stream(SqlEnum.values())
-                                .filter((SqlEnum value) -> value.getClassSimpleName().equals(currentColumnType))
+                        Optional<ResultsetFieldsEnum> optionalSqlEnum = Arrays.stream(ResultsetFieldsEnum.values())
+                                .filter((ResultsetFieldsEnum value) -> value.getClassSimpleName().equals(currentColumnType))
                                 .findFirst();
                         if(optionalSqlEnum.isPresent()){
-                            SqlEnum sqlEnum = optionalSqlEnum.get();
-                            Method method = resultSet.getClass().getMethod(sqlEnum.getMethodToCall(), int.class);
+                            ResultsetFieldsEnum resultsetFieldsEnum = optionalSqlEnum.get();
+                            Method method = resultSet.getClass().getMethod(resultsetFieldsEnum.getMethodToCall(), int.class);
                             map.put(this.convertColumnToJava(resultSet.getMetaData().getColumnLabel(column)),
                                     method.invoke(resultSet, column)
                             );
@@ -55,36 +55,32 @@ public class SqlMap implements Serializable {
 
     }
 
-    private String convertColumnToJava(String column) throws Exception {
+    private String convertColumnToJava(String column) {
 
-        if(column == null){
+        if(column == null || column.isEmpty()){
             return "column";
-        }
+        }else{
+            /*Starting the variable*/
+            String columnToJava = "";
 
-        if(column.isEmpty()){
-            throw new Exception("Column name is empty");
-        }
+            /* Replace whitespace for '_' */
+            column = column.replaceAll("\\s","_");
 
-        /*Starting the variable*/
-        String columnToJava = "";
+            /*Split by '_' to create a array of words*/
+            String[] columns = column.split("_");
 
-        /* Replace whitespace for '_' */
-        column = column.replaceAll("\\s","_");
-
-        /*Split by '_' to create a array of words*/
-        String[] columns = column.split("_");
-
-        for(int currentWord = 0; currentWord < columns.length; currentWord++){
-            if(currentWord == 0){
-                /*Convert the first word to lowercase*/
-                columnToJava += columns[currentWord].toLowerCase();
-            }else{
-                /*Convert the first char to uppercase*/
-                columnToJava += columns[currentWord].substring(0, 1).toUpperCase() +
-                        columns[currentWord].substring(1).toLowerCase();
+            for(int currentWord = 0; currentWord < columns.length; currentWord++){
+                if(currentWord == 0){
+                    /*Convert the first word to lowercase*/
+                    columnToJava += columns[currentWord].toLowerCase();
+                }else{
+                    /*Convert the first char to uppercase*/
+                    columnToJava += columns[currentWord].substring(0, 1).toUpperCase() +
+                            columns[currentWord].substring(1).toLowerCase();
+                }
             }
-        }
 
-        return columnToJava;
+            return columnToJava;
+        }
     }
 }

@@ -8,7 +8,7 @@ package com.tiagoiwamoto.iwtlibcore.sql;
  * 16/02/2021 | 20:10
  */
 
-public enum SqlEnum {
+public enum ResultsetFieldsEnum {
     STRING("String", "getString"),
     INTEGER("Integer", "getInt"),
     LONG("Long", "getLong"),
@@ -23,7 +23,7 @@ public enum SqlEnum {
     private String classSimpleName;
     private String methodToCall;
 
-    SqlEnum(String classSimpleName, String methodToCall) {
+    ResultsetFieldsEnum(String classSimpleName, String methodToCall) {
         this.classSimpleName = classSimpleName;
         this.methodToCall = methodToCall;
     }

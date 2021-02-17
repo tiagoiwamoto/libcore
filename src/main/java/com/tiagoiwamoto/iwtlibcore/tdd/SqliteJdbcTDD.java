@@ -8,7 +8,7 @@ package com.tiagoiwamoto.iwtlibcore.tdd;
  * 16/02/2021 | 20:30
  */
 
-import com.tiagoiwamoto.iwtlibcore.sql.SqlMap;
+import com.tiagoiwamoto.iwtlibcore.sql.ResultsetMapper;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +25,7 @@ public class SqliteJdbcTDD {
         Connection conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select * from tb_teste_types");
-        List<Map<String, Object>> result = new SqlMap().serialize(rs);
+        List<Map<String, Object>> result = new ResultsetMapper().serialize(rs);
         conn.close();
     }
 
