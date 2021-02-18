@@ -21,3 +21,15 @@ n
 >src/main/java/com/tiagoiwamoto/iwtlibcore/util/UniqueUUID.java,3\d\3d1617e926c670d2adbcef0c011bc3cbb833233d
 n
 >src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/SecurityTDD.java,0\a\0a53d506b22ff028f74dc00b9b4f12afdf0a938c
+v
+Fsrc/main/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetFieldsEnum.java,8\a\8a60f8cf481833bd9cd211403673b0b0caac3d67
+h
+8src/main/java/com/tiagoiwamoto/iwtlibcore/util/Ldtu.java,8\c\8c6f14bb528f6666354715987d616c6b1d09399e
+n
+>src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/ObmapperTDD.java,e\7\e7cf3a7d6cffc75248263f232ac494d7845d7e3e
+k
+;src/test/java/com/tiagoiwamoto/iwtlibcore/sql/PojoTest.java,3\6\369dc9a0f9f0d2fa72d01a2fc55fff69d4809171
+r
+Bsrc/main/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetMapper.java,a\3\a3d6da31db356bfbf60f86086be0923b8e35a57d
+v
+Fsrc/test/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetMapperTest.java,f\d\fdc19047bb5b2aec4393c21a0c1a81760afdd615
