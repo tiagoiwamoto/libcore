@@ -1,9 +1,0 @@
-
-8
-java:S1643S"Use a StringBuilder instead.(²Â©^8úÌÓú.
->
-java:S1643P"Use a StringBuilder instead.(Ã‡Ûíÿÿÿÿÿ8úÌÓú.
-b	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(¾¹Ø8±¥¡ëú.
-g	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(¯‘ÇÕşÿÿÿÿ8èşÓÓú.
-b	java:S112A"FDefine and throw a dedicated exception instead of using a generic one.(†¡–ó8úÌÓú.
-g	java:S112:"FDefine and throw a dedicated exception instead of using a generic one.(Æ€Ô¡ıÿÿÿÿ8úÌÓú.

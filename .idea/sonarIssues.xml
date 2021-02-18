@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
@@ -93,7 +98,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/factory/IwtMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/sql/MockResultSet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetMapper.java">
           <value>
             <set />
           </value>
@@ -113,7 +128,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/ClockTDD.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/SqliteJdbcTDD.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/tdd/UuidTDD.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/util/Security.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/tiagoiwamoto/iwtlibcore/util/UniqueUUID.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/tiagoiwamoto/iwtlibcore/sql/PojoTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetMapperTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/tiagoiwamoto/iwtlibcore/util/LdtuTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/tiagoiwamoto/iwtlibcore/util/SecurityTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/tiagoiwamoto/iwtlibcore/util/UniqueUUIDTest.java">
           <value>
             <set />
           </value>

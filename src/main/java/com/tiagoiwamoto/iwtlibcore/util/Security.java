@@ -40,8 +40,8 @@ public class Security implements Serializable {
             return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
         } catch (Exception e) {
             System.out.println("Error while encrypting: " + e.toString());
+            return null;
         }
-        return null;
     }
 
     public String decrypt(String strToDecrypt, String secret) {
@@ -59,7 +59,7 @@ public class Security implements Serializable {
             return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
         } catch (Exception e) {
             System.out.println("Error while decrypting: " + e.toString());
+            return null;
         }
-        return null;
     }
 }

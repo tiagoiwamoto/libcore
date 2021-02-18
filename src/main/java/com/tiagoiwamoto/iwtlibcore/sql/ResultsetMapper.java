@@ -12,6 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.tiagoiwamoto.iwtlibcore.factory.IwtMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,10 +35,6 @@ public class ResultsetMapper<T> implements Serializable {
     public List<T> serialize(ResultSet resultSet) throws Exception {
 
         log.info("starting walking to resultset");
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        mapper.registerModule(new JavaTimeModule());
 
         try{
             List<Map<String, Object>> resultList = new LinkedList<>();
@@ -64,7 +61,7 @@ public class ResultsetMapper<T> implements Serializable {
                 }
                 resultList.add(map);
             }
-            return mapper.convertValue(resultList, new TypeReference<List<T>>(){});
+            return new IwtMapper().build().convertValue(resultList, new TypeReference<List<T>>(){});
         }catch (Exception e){
             log.error("Failed to convert your object", e);
             throw new Exception("Failed to convert your object", e);
