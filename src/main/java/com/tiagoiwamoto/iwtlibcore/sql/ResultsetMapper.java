@@ -9,9 +9,6 @@ package com.tiagoiwamoto.iwtlibcore.sql;
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.tiagoiwamoto.iwtlibcore.factory.IwtMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

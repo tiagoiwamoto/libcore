@@ -8,6 +8,8 @@ package com.tiagoiwamoto.iwtlibcore.model.dto;
  * 15/02/2021 | 21:07
  */
 
+import com.tiagoiwamoto.iwtlibcore.util.UniqueUUID;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -23,16 +25,12 @@ public class ApiDTO<T> implements Serializable {
 
     public ApiDTO() { }
 
-    public ApiDTO(String code, String message, T detail, String protocol, LocalDateTime timestamp) {
+    public ApiDTO(String code, String message, T detail) {
         this.code = code;
         this.message = message;
         this.detail = detail;
-        this.protocol = protocol;
-        this.timestamp = timestamp;
-    }
-
-    public static ApiDTO anApiDTO() {
-        return new ApiDTO();
+        this.protocol = new UniqueUUID().generate();
+        this.timestamp = LocalDateTime.now();
     }
 
     public ApiDTO withCode(String code) {
@@ -50,58 +48,24 @@ public class ApiDTO<T> implements Serializable {
         return this;
     }
 
-    public ApiDTO withProtocol(String protocol) {
-        this.protocol = protocol;
-        return this;
-    }
-
-    public ApiDTO withTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-        return this;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public T getDetail() {
         return detail;
-    }
-
-    public void setDetail(T detail) {
-        this.detail = detail;
     }
 
     public String getProtocol() {
         return protocol;
     }
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
-
     public LocalDateTime getTimestamp() {
         return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
     }
 
     @Override
