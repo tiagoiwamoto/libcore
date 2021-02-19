@@ -25,6 +25,12 @@ public class Security implements Serializable {
     private static final String secretKey = "boooooooooom!!!!";
     private static final String salt = "ssshhhhhhhhhhh!!!!";
 
+    /**
+     * Encrypt a value using AES
+     * @param strToEncrypt is the value to be protect
+     * @param secret is the key to lock
+     * @return a string value protected
+     */
     public String encrypt(String strToEncrypt, String secret) {
         try {
             byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -44,6 +50,12 @@ public class Security implements Serializable {
         }
     }
 
+    /**
+     * Encrypt a value using AES
+     * @param strToDecrypt is the value to be decripted
+     * @param secret is the key to unlock
+     * @return a string value decripted
+     */
     public String decrypt(String strToDecrypt, String secret) {
         try {
             byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

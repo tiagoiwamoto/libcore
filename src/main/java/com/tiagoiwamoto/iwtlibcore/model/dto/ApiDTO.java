@@ -13,22 +13,27 @@ import com.tiagoiwamoto.iwtlibcore.util.UniqueUUID;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * Its a simple DTO with automatic protocol and timestamp.
+ * Follow the jsonapi model
+ * @param <T> specified the object you want to use here.
+ */
 public class ApiDTO<T> implements Serializable {
 
     private static final long serialVersionUID = -3834803335741634479L;
 
     private String code;
     private String message;
-    private T detail;
+    private T details;
     private String protocol;
     private LocalDateTime timestamp;
 
     public ApiDTO() { }
 
-    public ApiDTO(String code, String message, T detail) {
+    public ApiDTO(String code, String message, T details) {
         this.code = code;
         this.message = message;
-        this.detail = detail;
+        this.details = details;
         this.protocol = new UniqueUUID().generate();
         this.timestamp = LocalDateTime.now();
     }
@@ -44,7 +49,7 @@ public class ApiDTO<T> implements Serializable {
     }
 
     public ApiDTO withDetail(T detail) {
-        this.detail = detail;
+        this.details = detail;
         return this;
     }
 
@@ -56,8 +61,8 @@ public class ApiDTO<T> implements Serializable {
         return message;
     }
 
-    public T getDetail() {
-        return detail;
+    public T getDetails() {
+        return details;
     }
 
     public String getProtocol() {
@@ -73,7 +78,7 @@ public class ApiDTO<T> implements Serializable {
         final StringBuilder sb = new StringBuilder("ApiDTO{");
         sb.append("code='").append(code).append('\'');
         sb.append(", message='").append(message).append('\'');
-        sb.append(", detail=").append(detail);
+        sb.append(", detail=").append(details);
         sb.append(", protocol='").append(protocol).append('\'');
         sb.append(", timestamp=").append(timestamp);
         sb.append('}');

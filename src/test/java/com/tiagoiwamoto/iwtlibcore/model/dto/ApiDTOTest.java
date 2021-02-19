@@ -23,7 +23,7 @@ public class ApiDTOTest {
         .withDetail(new PojoTest());
         Assert.assertNotNull(apiDTO.getCode());
         Assert.assertNotNull(apiDTO.getMessage());
-        Assert.assertNotNull(apiDTO.getDetail());
+        Assert.assertNotNull(apiDTO.getDetails());
         Assert.assertNotNull(apiDTO.getProtocol());
         Assert.assertNotNull(apiDTO.getTimestamp());
         Assert.assertNotNull(apiDTO.toString());
