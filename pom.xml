@@ -4,7 +4,7 @@
 
     <groupId>com.tiagoiwamoto</groupId>
     <artifactId>iwt-libcore</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>iwt-libcore</name>
     <description>This project have a collections of lib to make the day a day easy</description>
 
