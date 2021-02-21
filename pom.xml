@@ -11,9 +11,9 @@
     <description>This project have a collections of lib to make the day a day easy</description>
 
     <scm>
-        <connection>scm:git://github.com/tiagoiwamoto/iwt-libcore.gitithub.com/tiagoiwamoto/springdata-helper.git</connection>
-        <developerConnection>scm:git:git@github.com/tiagoiwamoto/iwt-libcore.gitithub.com/tiagoiwamoto/springdata-helper.git</developerConnection>
-        <url>https://github.com/tiagoiwamoto/iwt-libcore.gitithub.com/tiagoiwamoto/springdata-helper.git</url>
+        <connection>scm:git://github.com/tiagoiwamoto/iwt-libcore.git</connection>
+        <developerConnection>scm:git:git@hgithub.com/tiagoiwamoto/iwt-libcore.git</developerConnection>
+        <url>https://github.com/tiagoiwamoto/iwt-libcore</url>
         <tag>iwt-libcore-1.0.0</tag>
     </scm>
 
