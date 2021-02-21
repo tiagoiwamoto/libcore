@@ -13,6 +13,9 @@
         * UniqueUUID -> generate a unique uuid based on your application, local datetime and a random number
 
 ### Usage
+    Clone this repository
+    execute this command:
+    mvn clean install
     Import in your pom.xml
     <dependencies>
         <dependency>
