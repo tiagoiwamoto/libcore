@@ -9,9 +9,6 @@ package com.tiagoiwamoto.iwtlibcore.sql;
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.tiagoiwamoto.iwtlibcore.factory.IwtMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +29,12 @@ public class ResultsetMapper<T> implements Serializable {
 
     Logger log = LogManager.getLogger(ResultsetMapper.class.getName());
 
+    /**
+     * Convert a resultset into a list of map or to a list of your object
+     * @param resultSet
+     * @return a list of map or customized object
+     * @throws Exception when the convertion failed
+     */
     public List<T> serialize(ResultSet resultSet) throws Exception {
 
         log.info("starting walking to resultset");
@@ -69,6 +72,11 @@ public class ResultsetMapper<T> implements Serializable {
 
     }
 
+    /**
+     * For get a word like 'field_from_data_base' to fieldFromDataBase
+     * @param column to be converted
+     * @return a string with value converted
+     */
     private String convertColumnToJava(String column) {
 
         if(column == null || column.isEmpty()){

@@ -17,6 +17,10 @@ public class UniqueUUID implements Serializable {
 
     private static final long MSB = 0x8000000000000000L;
 
+    /**
+     * Generate a random id.
+     * @return a string with a value generated
+     */
     public String generate() {
         SecureRandom ng = new SecureRandom();
         return Long.toHexString(MSB | ng.nextLong()) + Long.toHexString(MSB | ng.nextLong());

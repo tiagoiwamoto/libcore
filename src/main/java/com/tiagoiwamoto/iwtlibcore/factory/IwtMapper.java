@@ -25,6 +25,10 @@ public class IwtMapper implements Serializable {
         mapper.registerModule(new JavaTimeModule());
     }
 
+    /**
+     *
+     * @return a mapper configured to ignore unknown properties and javatime module registered
+     */
     public ObjectMapper build(){
         return this.mapper;
     }
