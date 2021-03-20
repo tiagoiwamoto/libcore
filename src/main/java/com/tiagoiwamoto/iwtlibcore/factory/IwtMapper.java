@@ -12,12 +12,15 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class IwtMapper implements Serializable {
+
+    @Serial
     private static final long serialVersionUID = -2545229936090673379L;
 
-    private ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
     public IwtMapper() {
         this.mapper = new ObjectMapper();

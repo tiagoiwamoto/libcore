@@ -13,12 +13,12 @@ import java.time.LocalTime;
 
 public class LocalDateTimeDTO {
 
-    private String formated;
-    private LocalDate date;
-    private String dateFormated;
-    private LocalTime time;
-    private String timeFormated;
-    private Long timestamp;
+    private final String formated;
+    private final LocalDate date;
+    private final String dateFormated;
+    private final LocalTime time;
+    private final String timeFormated;
+    private final Long timestamp;
 
     public LocalDateTimeDTO(String formated, LocalDate date, String dateFormated, LocalTime time, String timeFormated, Long timestamp) {
         this.formated = formated;

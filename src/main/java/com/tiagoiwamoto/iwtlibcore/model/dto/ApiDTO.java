@@ -10,6 +10,7 @@ package com.tiagoiwamoto.iwtlibcore.model.dto;
 
 import com.tiagoiwamoto.iwtlibcore.util.UniqueUUID;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -20,6 +21,7 @@ import java.time.LocalDateTime;
  */
 public class ApiDTO<T> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -3834803335741634479L;
 
     private String code;

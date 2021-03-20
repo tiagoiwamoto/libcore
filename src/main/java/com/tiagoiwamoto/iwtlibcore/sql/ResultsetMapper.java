@@ -9,10 +9,12 @@ package com.tiagoiwamoto.iwtlibcore.sql;
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.tiagoiwamoto.iwtlibcore.exception.ResultsetConvertException;
 import com.tiagoiwamoto.iwtlibcore.factory.IwtMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ import java.util.Optional;
 
 public class ResultsetMapper<T> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8613892522949576847L;
 
     Logger log = LogManager.getLogger(ResultsetMapper.class.getName());
@@ -35,7 +38,7 @@ public class ResultsetMapper<T> implements Serializable {
      * @return a list of map or customized object
      * @throws Exception when the convertion failed
      */
-    public List<T> serialize(ResultSet resultSet) throws Exception {
+    public List<T> serialize(ResultSet resultSet) throws ResultsetConvertException {
 
         log.info("starting walking to resultset");
 
@@ -58,7 +61,7 @@ public class ResultsetMapper<T> implements Serializable {
                             );
                         }else{
                             log.error("failed to map your resultset because one or more columns type is not supported.");
-                            throw new Exception("failed to map your resultset because one or more columns type is not supported.");
+                            throw new ResultsetConvertException("failed to map your resultset because one or more columns type is not supported.");
                         }
                     }
                 }
@@ -67,7 +70,7 @@ public class ResultsetMapper<T> implements Serializable {
             return new IwtMapper().build().convertValue(resultList, new TypeReference<List<T>>(){});
         }catch (Exception e){
             log.error("Failed to convert your object", e);
-            throw new Exception("Failed to convert your object", e);
+            throw new ResultsetConvertException("Failed to convert your object", e);
         }
 
     }

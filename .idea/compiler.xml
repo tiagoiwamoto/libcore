@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="iwt-libcore" />
-        <module name="iwa-libcore" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="iwa-libcore" target="14" />
+    </bytecodeTargetLevel>
   </component>
 </project>

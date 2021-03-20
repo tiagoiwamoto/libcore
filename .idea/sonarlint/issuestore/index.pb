@@ -19,3 +19,6 @@ v
 Fsrc/test/java/com/tiagoiwamoto/iwtlibcore/sql/ResultsetMapperTest.java,f\d\fdc19047bb5b2aec4393c21a0c1a81760afdd615
 9
 	readme.md,2\7\275d783e298228506068436512433d343feb52aa
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
