@@ -10,6 +10,7 @@ package com.tiagoiwamoto.iwtlibcore.util;
 
 import com.tiagoiwamoto.iwtlibcore.model.dto.LocalDateTimeDTO;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,8 +21,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Ldtu implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -7910520512254863120L;
-    private LocalDateTime localDateTime;
+    private final LocalDateTime localDateTime;
     private LocalDateTimeDTO localDateTimeDTO;
     private String fullPattern;
     private String datePattern;

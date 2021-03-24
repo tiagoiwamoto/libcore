@@ -20,8 +20,8 @@ public enum ResultsetFieldsEnum {
     DATE("Date", "getDate"),
     TIME("Time", "getTime");
 
-    private String classSimpleName;
-    private String methodToCall;
+    private final String classSimpleName;
+    private final String methodToCall;
 
     ResultsetFieldsEnum(String classSimpleName, String methodToCall) {
         this.classSimpleName = classSimpleName;
