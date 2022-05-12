@@ -31,7 +31,7 @@ public class SuccessResponseDto<T> extends ResponseDto implements Serializable {
     private T data;
     private String protocol;
 
-    public SuccessResponseDto of(String code, String message, T data) {
+    public static <T> SuccessResponseDto of(String code, String message, T data) {
         return new SuccessResponseDto(code, message, data);
     }
 

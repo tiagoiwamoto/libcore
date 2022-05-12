@@ -10,9 +10,6 @@ package br.com.tiagoiwamoto.libcore.exception;
 
 public class ResultsetConvertException extends RuntimeException{
 
-    public ResultsetConvertException() {
-    }
-
     public ResultsetConvertException(String message) {
         super(message);
     }

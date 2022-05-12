@@ -1,8 +1,10 @@
 package br.com.tiagoiwamoto.libcore.model.dto;
 
-import br.com.tiagoiwamoto.libcore.sql.PojoTest;
-import org.junit.Assert;
-import org.junit.Test;
+import br.com.tiagoiwamoto.libcore.sql.IwtPojo;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDateTime;
 
 
 /*
@@ -16,17 +18,14 @@ public class ApiDTOTest {
 
     @Test
     public void testApiDto(){
-        SuccessResponseDto<PojoTest> successResponseDto = new SuccessResponseDto<>();
-        successResponseDto = new SuccessResponseDto<>("0", "success", new PojoTest())
-        .withCode("1")
-        .withMessage("new success")
-        .withDetail(new PojoTest());
-        Assert.assertNotNull(successResponseDto.getCode());
-        Assert.assertNotNull(successResponseDto.getMessage());
-        Assert.assertNotNull(successResponseDto.getData());
-        Assert.assertNotNull(successResponseDto.getProtocol());
-        Assert.assertNotNull(successResponseDto.getTimestamp());
-        Assert.assertNotNull(successResponseDto.toString());
+        var pojoTest = new IwtPojo();
+        SuccessResponseDto<IwtPojo> successResponseDto = SuccessResponseDto.of("0", "success", pojoTest);
+        Assertions.assertEquals("0", successResponseDto.getCode());
+        Assertions.assertEquals("success", successResponseDto.getMessage());
+        Assertions.assertEquals(pojoTest, successResponseDto.getData());
+        Assertions.assertEquals(32, successResponseDto.getProtocol().length());
+        Assertions.assertEquals(LocalDateTime.now().getYear(), successResponseDto.getTimestamp().getYear());
+        Assertions.assertNotNull(successResponseDto.toString());
 
     }
 

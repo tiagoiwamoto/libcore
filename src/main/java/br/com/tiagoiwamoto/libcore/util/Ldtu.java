@@ -8,7 +8,7 @@ package br.com.tiagoiwamoto.libcore.util;
  * 15/02/2021 | 21:27
  */
 
-import br.com.tiagoiwamoto.libcore.model.dto.LocalDateTimeDTO;
+import br.com.tiagoiwamoto.libcore.model.dto.LocalDateTimeDto;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -24,7 +24,7 @@ public class Ldtu implements Serializable {
     @Serial
     private static final long serialVersionUID = -7910520512254863120L;
     private final LocalDateTime localDateTime;
-    private LocalDateTimeDTO localDateTimeDTO;
+    private LocalDateTimeDto localDateTimeDTO;
     private String fullPattern;
     private String datePattern;
     private String timePattern;
@@ -64,7 +64,7 @@ public class Ldtu implements Serializable {
         return this;
     }
 
-    private LocalDateTimeDTO clock(){
+    private LocalDateTimeDto clock(){
         DateTimeFormatter fullFormat = DateTimeFormatter.ofPattern(this.fullPattern == null ? "dd/MM/yyyy HH:mm:ss" : this.fullPattern);
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(this.datePattern == null ? "dd/MM/yyyy" : this.datePattern);
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern(this.timePattern == null ? "HH:mm:ss" : this.timePattern);
@@ -72,7 +72,7 @@ public class Ldtu implements Serializable {
         LocalTime localTime = this.localDateTime.toLocalTime();
         ZonedDateTime zdt = this.localDateTime.atZone(ZoneId.of(this.zoneId == null ? "America/Sao_Paulo" : this.zoneId));
         long timeStampMillis = zdt.toInstant().toEpochMilli();
-        return new LocalDateTimeDTO(
+        return new LocalDateTimeDto(
                 fullFormat.format(this.localDateTime), localDate, dateFormat.format(localDate),
                 localTime, timeFormat.format(localTime), timeStampMillis);
     }

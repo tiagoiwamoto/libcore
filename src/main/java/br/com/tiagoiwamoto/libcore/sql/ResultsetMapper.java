@@ -100,8 +100,8 @@ public class ResultsetMapper<T> implements Serializable {
                     columnToJava += columns[currentWord].toLowerCase();
                 }else{
                     /*Convert the first char to uppercase*/
-                    columnToJava += columns[currentWord].substring(0, 1).toUpperCase() +
-                            columns[currentWord].substring(1).toLowerCase();
+                    columnToJava += columns[currentWord].substring(0, 1).toUpperCase().concat(
+                            columns[currentWord].substring(1)).toLowerCase();
                 }
             }
 

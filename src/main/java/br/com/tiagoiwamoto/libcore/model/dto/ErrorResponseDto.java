@@ -1,12 +1,14 @@
 package br.com.tiagoiwamoto.libcore.model.dto;
 
 import br.com.tiagoiwamoto.libcore.util.UniqueUUID;
+import lombok.Getter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class ErrorResponseDto extends ResponseDto implements Serializable {
 
     private static final long serialVersionUID = 8264676523759784745L;

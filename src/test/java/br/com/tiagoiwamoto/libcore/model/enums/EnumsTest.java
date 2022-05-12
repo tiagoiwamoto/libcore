@@ -1,7 +1,7 @@
 package br.com.tiagoiwamoto.libcore.model.enums;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -18,10 +18,10 @@ public class EnumsTest {
     @Test
     public void testEnums(){
         SexEnum[] sexEnums = SexEnum.values();
-        Arrays.stream(sexEnums).forEach(Assert::assertNotNull);
+        Arrays.stream(sexEnums).forEach(Assertions::assertNotNull);
 
         StatusEnum[] statusEnums = StatusEnum.values();
-        Arrays.stream(statusEnums).forEach(Assert::assertNotNull);
+        Arrays.stream(statusEnums).forEach(Assertions::assertNotNull);
 
     }
 

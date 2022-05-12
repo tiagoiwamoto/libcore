@@ -1,8 +1,5 @@
 package br.com.tiagoiwamoto.libcore.util;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 
 /*
  * Tiago Henrique Iwamoto
@@ -12,6 +9,9 @@ import org.junit.Test;
  * 18/02/2021 | 07:42
  */
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 public class SecurityTest {
 
     @Test
@@ -20,7 +20,7 @@ public class SecurityTest {
 
         String encryptedString = new Security().encrypt(originalString, "secretKey") ;
 
-        Assert.assertNotNull(new Security().encrypt(originalString, "secretKey"));
-        Assert.assertNotNull(new Security().decrypt(encryptedString, "boooooooooom!!!!"));
+        Assertions.assertNotNull(new Security().encrypt(originalString, "secretKey"));
+        Assertions.assertNotNull(new Security().decrypt(encryptedString, "boooooooooom!!!!"));
     }
 }

@@ -1,8 +1,5 @@
 package br.com.tiagoiwamoto.libcore.util;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 
 /*
  * Tiago Henrique Iwamoto
@@ -12,10 +9,13 @@ import org.junit.Test;
  * 18/02/2021 | 07:45
  */
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 public class UniqueUUIDTest {
 
     @Test
     public void generate() {
-        Assert.assertNotNull(new UniqueUUID().generate());
+        Assertions.assertNotNull(new UniqueUUID().generate());
     }
 }

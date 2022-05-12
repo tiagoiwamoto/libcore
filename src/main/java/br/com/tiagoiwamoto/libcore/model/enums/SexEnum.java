@@ -10,6 +10,6 @@ package br.com.tiagoiwamoto.libcore.model.enums;
 
 public enum SexEnum {
 
-    MALE, FEMALE, TRANSSEXUAL
+    MALE, FEMALE
 
 }

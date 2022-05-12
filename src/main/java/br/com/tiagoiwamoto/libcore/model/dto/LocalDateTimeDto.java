@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 @Getter
 @ToString
-public class LocalDateTimeDTO implements Serializable {
+public class LocalDateTimeDto implements Serializable {
 
     private static final long serialVersionUID = -1958262782708130756L;
     private final String formated;
@@ -26,7 +26,7 @@ public class LocalDateTimeDTO implements Serializable {
     private final String timeFormated;
     private final Long timestamp;
 
-    public LocalDateTimeDTO(String formated, LocalDate date, String dateFormated, LocalTime time, String timeFormated, Long timestamp) {
+    public LocalDateTimeDto(String formated, LocalDate date, String dateFormated, LocalTime time, String timeFormated, Long timestamp) {
         this.formated = formated;
         this.date = date;
         this.dateFormated = dateFormated;
