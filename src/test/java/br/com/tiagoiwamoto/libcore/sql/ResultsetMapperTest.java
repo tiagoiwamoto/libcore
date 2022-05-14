@@ -1,5 +1,7 @@
 package br.com.tiagoiwamoto.libcore.sql;
 
+import br.com.tiagoiwamoto.libcore.factory.IwtMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -28,14 +30,11 @@ public class ResultsetMapperTest {
         Connection conn = DriverManager.getConnection(url);
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("select * from tb_teste_types");
-        List<IwtPojo> result = new ResultsetMapper<IwtPojo>().serialize(rs);
+        var mapper = new ResultsetMapper<IwtPojo>();
+        List<IwtPojo> result = mapper.serialize(rs);
         conn.close();
-//        Assertions.assertEquals(result.get(0).getId(), 1);
-//        Assertions.assertEquals(result.get(0).getName(), "Nome completo");
-//        Assertions.assertEquals(result.get(0).getFieldBigdecimal(), 12345678965432112L);
-//        Assertions.assertEquals(result.get(0).getFieldDecimal(), 10.2);
-//        Assertions.assertEquals(result.get(0).getCreatedAt(), LocalDateTime.of(2021, 2, 16, 23, 52, 36));
-        Assertions.assertEquals(2, result.size());
+        var resultConverted = new IwtMapper().build().convertValue(result, new TypeReference<List<IwtPojo>>() {});
+        Assertions.assertEquals(2, resultConverted.size());
     }
 
     @Test

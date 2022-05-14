@@ -17,9 +17,6 @@ public class EnumsTest {
 
     @Test
     public void testEnums(){
-        SexEnum[] sexEnums = SexEnum.values();
-        Arrays.stream(sexEnums).forEach(Assertions::assertNotNull);
-
         StatusEnum[] statusEnums = StatusEnum.values();
         Arrays.stream(statusEnums).forEach(Assertions::assertNotNull);
 

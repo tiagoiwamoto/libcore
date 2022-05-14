@@ -11,6 +11,8 @@ package br.com.tiagoiwamoto.libcore.sql;
 import com.fasterxml.jackson.core.type.TypeReference;
 import br.com.tiagoiwamoto.libcore.exception.ResultsetConvertException;
 import br.com.tiagoiwamoto.libcore.factory.IwtMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,6 +22,7 @@ import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -38,14 +41,14 @@ public class ResultsetMapper<T> implements Serializable {
      * @return a list of map or customized object
      * @throws Exception when the convertion failed
      */
-    public List<T> serialize(ResultSet resultSet) throws ResultsetConvertException {
+    public List<T> serialize(ResultSet resultSet) {
 
         log.info("starting walking to resultset");
 
         try{
             List<Map<String, Object>> resultList = new LinkedList<>();
             while(resultSet.next()){
-                Map<String, Object> map = new HashMap<>();
+                LinkedHashMap<String, Object> map = new LinkedHashMap<>();
                 log.info("resultset have {} records", resultList.size());
                 for(int column = 1; column <= resultSet.getMetaData().getColumnCount(); column++){
                     if(resultSet.getObject(column) != null){
@@ -67,7 +70,8 @@ public class ResultsetMapper<T> implements Serializable {
                 }
                 resultList.add(map);
             }
-            return new IwtMapper().build().convertValue(resultList, new TypeReference<List<T>>(){});
+            return new IwtMapper().build().convertValue(resultList, new TypeReference<List<T>>() {
+            });
         }catch (Exception e){
             log.error("Failed to convert your object", e);
             throw new ResultsetConvertException("Failed to convert your object", e);
